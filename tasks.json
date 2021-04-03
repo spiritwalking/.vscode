@@ -1,26 +1,22 @@
 {
   "version": "2.0.0",
-  "command": "Compile",
-  "type": "shell",
-  "presentation": {
-    "echo": true,
-    "reveal": "always",
-    "focus": false,
-    "panel": "shared",
-    "showReuseMessage": true,
-    "clear": false
-  },
-  "args": ["-m32", "-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}.exe"],
-  "problemMatcher": {
-    "owner": "cpp",
-    "fileLocation": ["relative", "${workspaceRoot}"],
-    "pattern": {
-      "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-      "file": 1,
-      "line": 2,
-      "column": 3,
-      "severity": 4,
-      "message": 5
-    }
-  }
+  "tasks": [
+      {
+          "type": "shell",
+          "label": "g++", //这里注意一下，见下文
+          "command": "C:\\MinGW64\\bin\\g++.exe",
+          "args": [
+              "-g",
+              "${file}",
+              "-o",
+              "${fileDirname}\\${fileBasenameNoExtension}.exe"
+          ],
+          "options": {
+              "cwd": "C:\\MinGW64\\bin"
+          },
+          "problemMatcher": [
+              "$gcc"
+          ]
+      }
+  ]
 }
